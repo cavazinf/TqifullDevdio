@@ -1,0 +1,112 @@
+HTML:
+
+Primeiro, vamos criar a estrutura HTML básica para o menu:
+
+html
+Copy code
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Menu Hamburguer</title>
+</head>
+<body>
+    <div class="menu-toggle">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
+    <nav class="menu">
+        <ul>
+            <li><a href="#">Página Inicial</a></li>
+            <li><a href="#">Sobre Nós</a></li>
+            <li><a href="#">Serviços</a></li>
+            <li><a href="#">Contato</a></li>
+        </ul>
+    </nav>
+</body>
+</html>
+CSS:
+
+Agora, vamos estilizar o menu com CSS:
+
+css
+Copy code
+/* Reset de estilos básicos */
+body, ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+/* Estilo do botão hamburguer */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 10px;
+    background-color: #333;
+    border: 1px solid #333;
+    border-radius: 5px;
+}
+
+.bar {
+    width: 30px;
+    height: 3px;
+    margin: 3px 0;
+    background-color: #fff;
+}
+
+/* Estilo do menu principal */
+.menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #333;
+    height: 60px;
+    position: absolute;
+    top: 0;
+    left: -100%;
+    transition: left 0.3s ease-in;
+}
+
+.menu ul {
+    display: flex;
+    list-style: none;
+}
+
+.menu li {
+    margin: 0 20px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+}
+
+/* Media query para exibir o botão hamburguer em telas menores */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex;
+    }
+
+    .menu {
+        width: 70%;
+    }
+}
+JavaScript:
+
+Para adicionar a funcionalidade de abrir e fechar o menu hamburguer, você pode usar JavaScript:
+
+javascript
+Copy code
+const menuToggle = document.querySelector('.menu-toggle');
+const menu = document.querySelector('.menu');
+
+menuToggle.addEventListener('click', () => {
+    menu.classList.toggle('active');
+});
+Agora, quando você clica no botão hamburguer, o menu aparecerá e desaparecerá com uma transição suave.
