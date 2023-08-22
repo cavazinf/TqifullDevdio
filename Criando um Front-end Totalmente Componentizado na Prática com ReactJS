@@ -1,0 +1,86 @@
+Criando um componente simples:
+jsx
+Copy code
+// Componente Botão
+import React from 'react';
+
+function Botao(props) {
+  return (
+    <button onClick={props.onClick}>
+      {props.texto}
+    </button>
+  );
+}
+
+export default Botao;
+
+
+Passando dados usando props:
+jsx
+Copy code
+// Usando o componente Botão
+import React from 'react';
+import Botao from './Botao';
+
+function App() {
+  return (
+    <div>
+      <h1>Meu Aplicativo React</h1>
+      <Botao texto="Clique em Mim" onClick={() => alert('Botão clicado!')} />
+    </div>
+  );
+}
+
+export default App;
+
+
+Gerenciando o estado com React Hooks:
+jsx
+Copy code
+import React, { useState } from 'react';
+
+function Contador() {
+  const [count, setCount] = useState(0);
+
+  return (
+    <div>
+      <p>Contagem: {count}</p>
+      <button onClick={() => setCount(count + 1)}>Incrementar</button>
+    </div>
+  );
+}
+
+export default Contador;
+
+
+Navegação usando React Router:
+jsx
+Copy code
+import React from 'react';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import PaginaInicial from './PaginaInicial';
+import Sobre from './Sobre';
+
+function App() {
+  return (
+    <Router>
+      <div>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/">Página Inicial</Link>
+            </li>
+            <li>
+              <Link to="/sobre">Sobre</Link>
+            </li>
+          </ul>
+        </nav>
+
+        <Route path="/" exact component={PaginaInicial} />
+        <Route path="/sobre" component={Sobre} />
+      </div>
+    </Router>
+  );
+}
+
+export default App;
